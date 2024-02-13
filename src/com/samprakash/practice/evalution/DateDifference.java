@@ -32,15 +32,13 @@ public class DateDifference {
         for(int i = 0 ; i < mon2 - 1 ; i++) {
             currYear2 += months[i];
         }
-        currYear1 += (year1-1)*365 + leapDays(year1);
-        currYear2 += (year2-1)*365 + leapDays(year2);
+        currYear1 += (year1-1)*365 + leapDays(year1-1);
+        currYear2 += (year2-1)*365 + leapDays(year2-1);
         System.out.println("Days Difference is : "+Math.abs(currYear2 - currYear1));
     }
 
     private static int leapDays(int year) {
-        if (year < 3) {
-            year--;
-        }
+
         return year/4 + year/400 - year/100;
     }
 }
